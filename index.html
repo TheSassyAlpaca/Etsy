@@ -11,7 +11,7 @@
 		
 		<script>
 			//<"https://openapi.etsy.com/v2/listings/active?api_key='imn1bvblrasc7oj8ga5z581x'">
-			var jqxhr = $.get( "example.php", function() {
+			var jqxhr = $.get( "https://openapi.etsy.com/v2/listings/active?api_key='imn1bvblrasc7oj8ga5z581x'", function() {
 				alert( "success" );
 			})
 			.done(function() {
@@ -24,9 +24,10 @@
 				alert( "finished" );
 			});
 
+			/*
 			jqxhr.always(function() {
 			alert( "second finished" );
-			});
+			});*/
 		</script>
 	</body>
 </html>
