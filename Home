@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+	<html lang="en-US" prefix="og: https://ogp.me/ns#">
+	<head>
+		<title>Etsy API Test Page</title>
+		<meta charset="utf-8">
+		<title>My test page</title>
+	</head>
+	
+	<body>
+	  Hello
+	</body>
+</html>
