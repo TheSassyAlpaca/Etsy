@@ -4,10 +4,29 @@
 	<head>
 		<title>Etsy API Test Page</title>
 		<meta charset="utf-8">
-		<title>My test page</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	</head>
 	
 	<body>
-	  Hello
+		
+		<script>
+			//<"https://openapi.etsy.com/v2/listings/active?api_key='imn1bvblrasc7oj8ga5z581x'">
+			var jqxhr = $.get( "example.php", function() {
+				alert( "success" );
+			})
+			.done(function() {
+				alert( "second success" );
+			})
+			.fail(function() {
+				alert( "error" );
+			})
+			.always(function() {
+				alert( "finished" );
+			});
+
+			jqxhr.always(function() {
+			alert( "second finished" );
+			});
+		</script>
 	</body>
 </html>
