@@ -8,12 +8,13 @@
 	</head>
 	
 	<body>
-		l3
+		l4
 		<script>
 			function loadListing(data) {
 				if (data.ok) {
 					console.log(data.status);
 					console.log(data);
+					$('title').text(data.results[0].title);
 					$('body').append(JSON.stringify(data));
 					/*
 						add listing to cookies
