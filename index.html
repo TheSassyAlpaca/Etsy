@@ -8,37 +8,24 @@
 	</head>
 	
 	<body>
-		13
+		1
 		<script>
 			function getData(data) {
 				if (data.ok) {
+					console.log(data.status);
 					console.log(data);
 				} else {
 					alert(data.error);
 				}
 			}
-			//<"https://openapi.etsy.com/v2/listings/active?api_key='imn1bvblrasc7oj8ga5z581x'">
-			//19779188
-			/*
-			var jqxhr = $.get( "https://openapi.etsy.com/v2/shops/thesassyalpacallc/listings/active.js?callback=getData&api_key=imn1bvblrasc7oj8ga5z581x", function(data) {
-				alert( "success" );
-			})
-			.done(function() {
-				alert( "second success" );
-			})
-			.fail(function() {
-				alert( "error" );
-				alert();
-			})
-			.always(function() {
-				alert( "finished" );
-			});
-
-			/*
-			jqxhr.always(function() {
-			alert( "second finished" );
-			});
-			*/
+			uriComponents={url:"https://openapi.etsy.com/v2/",listings:"thesassyalpacallc/listings/"}
+			//getShopListings : active, :[listing_id],
+			
+			function apiCallScript(x,y,z) {
+				$.getScript("https://openapi.etsy.com/v2/" + x + y + z + ".js?callback=getData&api_key=imn1bvblrasc7oj8ga5z581x");
+			}
+			
+			apiCallScript(uriComponents.listings,'active');
 		</script>
 		<script src="https://openapi.etsy.com/v2/shops/thesassyalpacallc/listings/active.js?callback=getData&api_key=imn1bvblrasc7oj8ga5z581x">
 			
