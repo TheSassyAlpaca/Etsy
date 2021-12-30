@@ -8,7 +8,7 @@
 	</head>
 	
 	<body>
-		10
+		
 		<script>
 			function getData(data) {
 				if (data.ok) {
@@ -23,7 +23,7 @@
 				if (data.ok) {
 					console.log(data.status);
 					console.log(data);
-					$(body).append(data);
+					$('body').append(data);
 				} else {
 					alert(data.error);
 				}
