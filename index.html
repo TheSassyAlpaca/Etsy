@@ -8,7 +8,7 @@
 	</head>
 	
 	<body>
-		l
+		l1
 		<script>
 			function loadListing(data) {
 				if (data.ok) {
@@ -52,7 +52,7 @@
 			}
 			listing_id=getID(window.location.search);
 			
-			getID(x) {
+			function getID(x) {
 				search=x.substring(1);
 				o=JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}');
 				console.log(o);
