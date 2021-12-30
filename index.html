@@ -8,7 +8,7 @@
 	</head>
 	
 	<body>
-		2
+		
 		<script>
 			function getData(data) {
 				if (data.ok) {
@@ -19,11 +19,18 @@
 					alert(data.error);
 				}
 			}
+			function checkVar(x) {
+				if (typeof x === 'undefined') {
+					return = "";
+				} else {
+					return x;
+				}
+			}
 			uriComponents={url:"https://openapi.etsy.com/v2/",listings:"thesassyalpacallc/listings/"}
 			//getShopListings : active, :[listing_id],
 			
 			function apiCallScript(x,y,z) {
-				theCall="https://openapi.etsy.com/v2/" + x + y + ".js?callback=getData&api_key=imn1bvblrasc7oj8ga5z581x"
+				theCall="https://openapi.etsy.com/v2/" + checkVar(x) + checkVar(y) + checkVar(z) + ".js?callback=getData&api_key=imn1bvblrasc7oj8ga5z581x"
 				console.log(theCall);
 				$.getScript(theCall);
 			}
