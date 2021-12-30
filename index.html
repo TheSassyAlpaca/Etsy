@@ -8,13 +8,13 @@
 	</head>
 	
 	<body>
-		4
+		
 		<script>
 			function getData(data) {
 				if (data.ok) {
 					console.log(data.status);
 					console.log(data);
-					apiCallScript(uriComponents.listings,data.results[10].listing_id);
+					apiCallScript(data.results[10].listing_id);
 				} else {
 					alert(data.error);
 				}
