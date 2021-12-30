@@ -8,13 +8,13 @@
 	</head>
 	
 	<body>
-		3
+		
 		<script>
 			function getData(data) {
 				if (data.ok) {
 					console.log(data.status);
 					console.log(data);
-					apiCallScript(uriComponents.listings,':'+ data.results[10].listing_id);
+					apiCallScript(uriComponents.listings,data.results[10].listing_id);
 				} else {
 					alert(data.error);
 				}
@@ -27,7 +27,7 @@
 				}
 			}
 			uriComponents={url:"https://openapi.etsy.com/v2/",listings:"shops/thesassyalpacallc/listings/"}
-			//getShopListings : active, :[listing_id],
+			//getShopListings : active, [listing_id],
 			
 			function apiCallScript(x,y,z) {
 				theCall="https://openapi.etsy.com/v2/" + checkVar(x) + checkVar(y) + checkVar(z) + ".js?callback=getData&api_key=imn1bvblrasc7oj8ga5z581x"
