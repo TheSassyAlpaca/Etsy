@@ -8,13 +8,14 @@
 	</head>
 	
 	<body>
-		
+		1
 		<script>
 			function getData(data) {
 				if (data.ok) {
 					console.log(data.status);
 					console.log(data);
 					apiCallScript(uriComponents.listings,data.results[10].listing_id,"","loadListing");
+					apiCallScript(uriComponents.listings,data.results[10].listing_id,"/images","loadListingImages");
 				} else {
 					alert(data.error);
 				}
@@ -24,6 +25,15 @@
 					console.log(data.status);
 					console.log(data);
 					$('body').append(data);
+				} else {
+					alert(data.error);
+				}
+			}
+			function loadListingImages(data) {
+				if (data.ok) {
+					console.log(data.status);
+					console.log(data);
+					//$('body').append(data.);
 				} else {
 					alert(data.error);
 				}
