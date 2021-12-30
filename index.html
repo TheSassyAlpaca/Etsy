@@ -8,14 +8,22 @@
 	</head>
 	
 	<body>
-		6
+		7
 		<script>
-			function getData(x,data) {
+			function getData(data) {
 				if (data.ok) {
 					console.log(data.status);
 					console.log(data);
-					console.log(x);
-					apiCallScript(uriComponents.listings,data.results[10].listing_id);
+					apiCallScript(uriComponents.listings,data.results[10].listing_id,,"loadListing");
+				} else {
+					alert(data.error);
+				}
+			}
+			function loadListing(data) {
+				if (data.ok) {
+					console.log(data.status);
+					console.log(data);
+					$(body).append(data);
 				} else {
 					alert(data.error);
 				}
@@ -30,13 +38,13 @@
 			uriComponents={url:"https://openapi.etsy.com/v2/",shop:"shops/thesassyalpacallc/",listings:"listings/"}
 			//getShopListings : active, [listing_id],
 			
-			function apiCallScript(x,y,z) {
-				theCall="https://openapi.etsy.com/v2/" + checkVar(x) + checkVar(y) + checkVar(z) + ".js?callback=getData(theCall)&api_key=imn1bvblrasc7oj8ga5z581x"
+			function apiCallScript(x,y,z,c) {
+				theCall="https://openapi.etsy.com/v2/" + checkVar(x) + checkVar(y) + checkVar(z) + ".js?callback=" + c + "&api_key=imn1bvblrasc7oj8ga5z581x"
 				console.log(theCall);
 				$.getScript(theCall);
 			}
 			
-			apiCallScript(uriComponents.shop,uriComponents.listings,'active');
+			apiCallScript(uriComponents.shop,uriComponents.listings,'active',,"getData");
 			
 			//"https://openapi.etsy.com/v2/shops/thesassyalpacallc/listings/active.js?callback=getData&api_key=imn1bvblrasc7oj8ga5z581x">
 		</script>
