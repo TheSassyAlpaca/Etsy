@@ -2,29 +2,22 @@
 <html>
 	<html lang="en-US" prefix="og: https://ogp.me/ns#">
 	<head>
-		<title>Etsy API Test Page</title>
+		<title>Etsy Listing</title>
 		<meta charset="utf-8">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	</head>
 	
 	<body>
-		4
+		l
 		<script>
-			function getData(data) {
-				if (data.ok) {
-					console.log(data.status);
-					console.log(data);
-					apiCallScript(uriComponents.listings,data.results[10].listing_id,"","loadListing");
-					apiCallScript(uriComponents.listings,data.results[10].listing_id,"/images","loadListingImages");
-				} else {
-					alert(data.error);
-				}
-			}
 			function loadListing(data) {
 				if (data.ok) {
 					console.log(data.status);
 					console.log(data);
 					$('body').append(data);
+					/*
+						add listing to cookies
+					*/
 				} else {
 					alert(data.error);
 				}
@@ -38,7 +31,9 @@
 					for(i=0;i<data.results.length;i++) {
 						$('body').append('<img src="' + data.results[i].url_570xN + '">');
 					}
-					//$('body').append(data.);
+					/*
+						add listing images to cookies
+					*/
 				} else {
 					alert(data.error);
 				}
@@ -50,18 +45,21 @@
 					return x;
 				}
 			}
-			uriComponents={url:"https://openapi.etsy.com/v2/",shop:"shops/thesassyalpacallc/",listings:"listings/"}
-			//getShopListings : active, [listing_id],
-			
 			function apiCallScript(x,y,z,c) {
 				theCall="https://openapi.etsy.com/v2/" + checkVar(x) + checkVar(y) + checkVar(z) + ".js?callback=" + c + "&api_key=imn1bvblrasc7oj8ga5z581x"
 				console.log(theCall);
 				$.getScript(theCall);
 			}
+			listing_id=getID(window.location.search);
 			
-			apiCallScript(uriComponents.shop,uriComponents.listings,'active',"getData");
-			
-			//"https://openapi.etsy.com/v2/shops/thesassyalpacallc/listings/active.js?callback=getData&api_key=imn1bvblrasc7oj8ga5z581x">
+			getID(x) {
+				search=x.substring(1);
+				o=JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+				console.log(o);
+				return o.list;
+			}
+			apiCallScript("shops/thesassyalpacallc/","listings/",listing_id,"loadListing");
+			apiCallScript("shops/thesassyalpacallc/","listings/",listing_id + "/images","loadListingImages");
 		</script>
 	</body>
 </html>
