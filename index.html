@@ -8,13 +8,13 @@
 	</head>
 	
 	<body>
-		9
+		10
 		<script>
 			function getData(data) {
 				if (data.ok) {
 					console.log(data.status);
 					console.log(data);
-					apiCallScript(uriComponents.listings,data.results[10].listing_id,"loadListing");
+					apiCallScript(uriComponents.listings,data.results[10].listing_id,"","loadListing");
 				} else {
 					alert(data.error);
 				}
@@ -39,7 +39,7 @@
 			//getShopListings : active, [listing_id],
 			
 			function apiCallScript(x,y,z,c) {
-				theCall="https://openapi.etsy.com/v2/" + checkVar(x) + checkVar(y) + ".js?callback=" + c + "&api_key=imn1bvblrasc7oj8ga5z581x"
+				theCall="https://openapi.etsy.com/v2/" + checkVar(x) + checkVar(y) + checkVar(z) + ".js?callback=" + c + "&api_key=imn1bvblrasc7oj8ga5z581x"
 				console.log(theCall);
 				$.getScript(theCall);
 			}
