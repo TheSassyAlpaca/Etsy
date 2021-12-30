@@ -8,10 +8,18 @@
 	</head>
 	
 	<body>
-		11
+		12
 		<script>
+			function getData(data) {
+				if (data.ok) {
+					// do something with the data here
+				} else {
+					alert(data.error);
+				}
+			}
 			//<"https://openapi.etsy.com/v2/listings/active?api_key='imn1bvblrasc7oj8ga5z581x'">
 			//19779188
+			/*
 			var jqxhr = $.get( "https://openapi.etsy.com/v2/shops/thesassyalpacallc/listings/active.js?callback=getData&api_key=imn1bvblrasc7oj8ga5z581x", function(data) {
 				alert( "success" );
 			})
@@ -29,7 +37,11 @@
 			/*
 			jqxhr.always(function() {
 			alert( "second finished" );
-			});*/
+			});
+			*/
+		</script>
+		<script src="https://openapi.etsy.com/v2/shops/thesassyalpacallc/listings/active.js?callback=getData&api_key=imn1bvblrasc7oj8ga5z581x">
+			
 		</script>
 	</body>
 </html>
