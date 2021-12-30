@@ -8,13 +8,13 @@
 	</head>
 	
 	<body>
-		7
+		
 		<script>
 			function getData(data) {
 				if (data.ok) {
 					console.log(data.status);
 					console.log(data);
-					apiCallScript(uriComponents.listings,data.results[10].listing_id,,"loadListing");
+					apiCallScript(uriComponents.listings,data.results[10].listing_id,"","loadListing");
 				} else {
 					alert(data.error);
 				}
@@ -44,7 +44,7 @@
 				$.getScript(theCall);
 			}
 			
-			apiCallScript(uriComponents.shop,uriComponents.listings,'active',,"getData");
+			apiCallScript(uriComponents.shop,uriComponents.listings,'active',"","getData");
 			
 			//"https://openapi.etsy.com/v2/shops/thesassyalpacallc/listings/active.js?callback=getData&api_key=imn1bvblrasc7oj8ga5z581x">
 		</script>
