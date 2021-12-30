@@ -8,7 +8,7 @@
 	</head>
 	
 	<body>
-		8
+		9
 		<script>
 			function getData(data) {
 				if (data.ok) {
@@ -38,7 +38,7 @@
 			uriComponents={url:"https://openapi.etsy.com/v2/",shop:"shops/thesassyalpacallc/",listings:"listings/"}
 			//getShopListings : active, [listing_id],
 			
-			function apiCallScript(x,y,c) {
+			function apiCallScript(x,y,z,c) {
 				theCall="https://openapi.etsy.com/v2/" + checkVar(x) + checkVar(y) + ".js?callback=" + c + "&api_key=imn1bvblrasc7oj8ga5z581x"
 				console.log(theCall);
 				$.getScript(theCall);
