@@ -23,7 +23,7 @@
 			//getShopListings : active, :[listing_id],
 			
 			function apiCallScript(x,y,z) {
-				theCall="https://openapi.etsy.com/v2/" + x + y + z + ".js?callback=getData&api_key=imn1bvblrasc7oj8ga5z581x"
+				theCall="https://openapi.etsy.com/v2/" + x + y + ".js?callback=getData&api_key=imn1bvblrasc7oj8ga5z581x"
 				console.log(theCall);
 				$.getScript(theCall);
 			}
