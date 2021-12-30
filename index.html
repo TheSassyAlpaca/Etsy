@@ -8,13 +8,13 @@
 	</head>
 	
 	<body>
-		
+		5
 		<script>
 			function getData(data) {
 				if (data.ok) {
 					console.log(data.status);
 					console.log(data);
-					apiCallScript(data.results[10].listing_id);
+					apiCallScript(uriComponents.listings,data.results[10].listing_id);
 				} else {
 					alert(data.error);
 				}
@@ -26,7 +26,7 @@
 					return x;
 				}
 			}
-			uriComponents={url:"https://openapi.etsy.com/v2/",listings:"shops/thesassyalpacallc/listings/"}
+			uriComponents={url:"https://openapi.etsy.com/v2/",shop:"shops/thesassyalpacallc/",listings:"listings/"}
 			//getShopListings : active, [listing_id],
 			
 			function apiCallScript(x,y,z) {
@@ -35,7 +35,7 @@
 				$.getScript(theCall);
 			}
 			
-			apiCallScript(uriComponents.listings,'active');
+			apiCallScript(uriComponents.shop,uriComponents.listings,'active');
 			
 			//"https://openapi.etsy.com/v2/shops/thesassyalpacallc/listings/active.js?callback=getData&api_key=imn1bvblrasc7oj8ga5z581x">
 		</script>
