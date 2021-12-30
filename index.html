@@ -8,7 +8,7 @@
 	</head>
 	
 	<body>
-		l1
+		
 		<script>
 			function loadListing(data) {
 				if (data.ok) {
@@ -58,8 +58,8 @@
 				console.log(o);
 				return o.list;
 			}
-			apiCallScript("shops/thesassyalpacallc/","listings/",listing_id,"loadListing");
-			apiCallScript("shops/thesassyalpacallc/","listings/",listing_id + "/images","loadListingImages");
+			apiCallScript("listings/",listing_id,"","loadListing");
+			apiCallScript("listings/",listing_id + "/images","","loadListingImages");
 		</script>
 	</body>
 </html>
