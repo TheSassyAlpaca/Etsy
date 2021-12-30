@@ -8,7 +8,7 @@
 	</head>
 	
 	<body>
-		2
+		3
 		<script>
 			function getData(data) {
 				if (data.ok) {
@@ -33,7 +33,7 @@
 				if (data.ok) {
 					console.log(data.status);
 					console.log(data);
-					imgCnt=data.results.length
+					imgCnt=data.results.length;
 					console.log(imgCnt);
 					for(i=0,i<data.results.length,i++) {
 						$('body').append('<img src="' + data.results[i].url_570xN + '">');
