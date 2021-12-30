@@ -8,13 +8,13 @@
 	</head>
 	
 	<body>
-		l2
+		l3
 		<script>
 			function loadListing(data) {
 				if (data.ok) {
 					console.log(data.status);
 					console.log(data);
-					$('body').append(data);
+					$('body').append(JSON.stringify(data));
 					/*
 						add listing to cookies
 					*/
@@ -51,7 +51,6 @@
 				$.getScript(theCall);
 			}
 			listing_id=getID(window.location.search);
-			
 			function getID(x) {
 				search=x.substring(1);
 				o=JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}');
