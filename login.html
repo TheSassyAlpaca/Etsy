@@ -10,8 +10,20 @@
 	<body>
 		<button id="loginButton">Login</button>
 		<script>
-			
-			code=getSearchVar("code",window.location.search);
+			$(function() {
+				code=getSearchVar("code",window.location.search);
+				getAccess();
+			})
+			function getAccess() {
+				console.log("I got this far " + code);
+				$.post("https://api.etsy.com/v3/public/oauth/token", {
+					"grant_type":"authorization_code",
+					"client_id":"imn1bvblrasc7oj8ga5z581x",
+					"redirect_uri":"https://etsy.thesassyalpaca.com/login.html",
+					"code":code,
+					"code_verifier":"vvkdljkejllufrvbhgeiegrnvufrhvrffnkvcknjvfid"
+				});
+			}
 			function getSearchVar(w,x) {
 				search=x.substring(1);
 				oString='{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}';
@@ -20,18 +32,8 @@
 				console.log(o);
 				console.log(o[w]);
 				return o[w];
-				getAccess();
 			}
-function getAccess() {
-				console.log("I got this far " + code);
-				$.post( "https://api.etsy.com/v3/public/oauth/token", {
-					"grant_type":"authorization_code",
-					"client_id":"imn1bvblrasc7oj8ga5z581x",
-					"redirect_uri":"https://etsy.thesassyalpaca.com/login.html",
-					"code":code,
-					"code_verifier":"vvkdljkejllufrvbhgeiegrnvufrhvrffnkvcknjvfid"
-				});
-			}
+
 			//https://api.etsy.com/v3/public/oauth/token
 		</script>
 		<script>
