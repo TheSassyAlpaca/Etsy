@@ -10,6 +10,32 @@
 	<body>
 		<button id="loginButton">Login</button>
 		<script>
+			/*
+			function getAccess() {
+				{
+					"grant_type"="authorization_code",
+					"client_id"="1aa2bb33c44d55eeeeee6fff",
+					"redirect_uri"="https://www.example.com/some/location",
+					"code"=code,
+					"code_verifier"="vvkdljkejllufrvbhgeiegrnvufrhvrffnkvcknjvfid"
+				}
+			}
+			*/
+			code=getSearchVar("code",window.location.search);
+			function getSearchVar(w,x) {
+				search=x.substring(1);
+				oString='{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}';
+				console.log(oString);
+				o=JSON.parse(oString);
+				console.log(o);
+				console.log(o[w]);
+				return o[w];
+			}
+
+			//https://api.etsy.com/v3/public/oauth/token
+		</script>
+		<script>
+			/*
 			function getData(data) {
 				if (data.ok) {
 					console.log(data.status);
@@ -20,21 +46,7 @@
 					alert(data.error);
 				}
 			}
-			
-			code=getSearchVar(window.location.search);
-			function getSearchVar(x) {
-				search=x.substring(1);
-				oString='{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}';
-				console.log(oString);
-				o=JSON.parse(oString);
-				console.log(o);
-				console.log(o.code);
-				return o;
-			}
-			
-			//https://api.etsy.com/v3/public/oauth/token
-			
-			/*
+
 			https://www.etsy.com/oauth/connect?
 				response_type=code
 				&redirect_uri=https://www.example.com/some/location
@@ -49,12 +61,9 @@
 				//$.getScript(theCall);
 				window.open(theCall);
 			}
-			
 			$('#loginButton').click(function() {
 				loginCallScript("https://etsy.thesassyalpaca.com/login.html","transactions_r%20transactions_w","imn1bvblrasc7oj8ga5z581x","DSWlW2Abh-cf8CeLL8-g3hQ2WQyYdKyiu83u_s7nRhI");
 			});
-						
-			//"https://openapi.etsy.com/v2/shops/thesassyalpacallc/listings/active.js?callback=getData&api_key=imn1bvblrasc7oj8ga5z581x">
 		</script>
 	</body>
 </html>
