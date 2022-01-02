@@ -12,18 +12,27 @@
 		<script>
 			$(function() {
 				code=getSearchVar("code",window.location.search);
-				getAccess();
+				//getAccess();
+				getAccess(x,code);
 			})
+			function getAccess(x,code) {
+				console.log("I got this farrer " + code);
+				$.post("https://api.etsy.com/v3/public/oauth/token.js?callback=" + x + "grant_type=authorization_code&client_id=imn1bvblrasc7oj8ga5z581x&redirect_uri=https://etsy.thesassyalpaca.com/login.html&code=" + code + "code_verifier=vvkdljkejllufrvbhgeiegrnvufrhvrffnkvcknjvfid");
+			}
+			/*
 			function getAccess() {
 				console.log("I got this far " + code);
-				$.post("https://api.etsy.com/v3/public/oauth/token", {
+				$.post("https://api.etsy.com/v3/public/oauth/token", function(data) {
 					"grant_type":"authorization_code",
 					"client_id":"imn1bvblrasc7oj8ga5z581x",
 					"redirect_uri":"https://etsy.thesassyalpaca.com/login.html",
 					"code":code,
 					"code_verifier":"vvkdljkejllufrvbhgeiegrnvufrhvrffnkvcknjvfid"
-				});
+				},
+					console.log(data);
+				);
 			}
+			*/
 			function getSearchVar(w,x) {
 				search=x.substring(1);
 				oString='{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}';
