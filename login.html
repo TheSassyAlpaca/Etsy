@@ -32,7 +32,8 @@
 			function loginCallScript(x,y,z,cc) {
 				theCall="https://www.etsy.com/oauth/connect?response_type=code&redirect_uri=" + x + "&scope=" + y + "&client_id=" + z + "&state=superstate&code_challenge=" + cc + "&code_challenge_method=S256";
 				console.log(theCall);
-				$.getScript(theCall);
+				//$.getScript(theCall);
+				window.open(theCall);
 			}
 			
 			$('#loginButton').click(function() {
