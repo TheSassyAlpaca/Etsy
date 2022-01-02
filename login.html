@@ -10,9 +10,9 @@
 	<body>
 		<button id="loginButton">Login</button>
 		<script>
-			/*
 			function getAccess() {
-				{
+				console.log("I got this far " + code);
+				$.post( "https://api.etsy.com/v3/public/oauth/token", {
 					"grant_type"="authorization_code",
 					"client_id"="1aa2bb33c44d55eeeeee6fff",
 					"redirect_uri"="https://www.example.com/some/location",
@@ -20,7 +20,6 @@
 					"code_verifier"="vvkdljkejllufrvbhgeiegrnvufrhvrffnkvcknjvfid"
 				}
 			}
-			*/
 			code=getSearchVar("code",window.location.search);
 			function getSearchVar(w,x) {
 				search=x.substring(1);
@@ -30,6 +29,7 @@
 				console.log(o);
 				console.log(o[w]);
 				return o[w];
+				getAccess()
 			}
 
 			//https://api.etsy.com/v3/public/oauth/token
