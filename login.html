@@ -21,12 +21,12 @@
 				}
 			}
 			
-			code=getSearchVar("code",window.location.search);
-			function getSearchVar(w,x) {
+			code=getSearchVar(window.location.search);
+			function getSearchVar(x) {
 				search=x.substring(1);
 				o=JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}');
 				console.log(o);
-				//console.log(o[w);
+				//console.log(o.code);
 				return o;
 			}
 			
