@@ -8,7 +8,7 @@
 	</head>
 	
 	<body>
-		
+		<button id="loginButton">Login</button>
 		<script>
 			function getData(data) {
 				if (data.ok) {
@@ -35,8 +35,10 @@
 				$.getScript(theCall);
 			}
 			
-			loginCallScript("https://etsy.thesassyalpaca.com","transactions_r%20transactions_w","imn1bvblrasc7oj8ga5z581x","DSWlW2Abh-cf8CeLL8-g3hQ2WQyYdKyiu83u_s7nRhI");
-			
+			$('#loginButton').click(funtion() {
+				loginCallScript("https://etsy.thesassyalpaca.com","transactions_r%20transactions_w","imn1bvblrasc7oj8ga5z581x","DSWlW2Abh-cf8CeLL8-g3hQ2WQyYdKyiu83u_s7nRhI");
+			});
+						
 			//"https://openapi.etsy.com/v2/shops/thesassyalpacallc/listings/active.js?callback=getData&api_key=imn1bvblrasc7oj8ga5z581x">
 		</script>
 	</body>
