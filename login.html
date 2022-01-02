@@ -24,9 +24,10 @@
 			code=getSearchVar(window.location.search);
 			function getSearchVar(x) {
 				search=x.substring(1);
-				o=JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+				oString=search.replace(/&/g, "','").replace(/=/g,"':'");
+				o=JSON.parse("{'" + oString + "'}");
 				console.log(o);
-				//console.log(o.code);
+				console.log(o.code);
 				return o;
 			}
 			
