@@ -25,7 +25,8 @@
 			function getSearchVar(x) {
 				search=x.substring(1);
 				oString=search.replace(/&/g, "','").replace(/=/g,"':'");
-				o=JSON.parse("{'" + oString + "'}");
+				console.log(oString);
+				o=JSON.parse('{"' + oString + '"}');
 				console.log(o);
 				console.log(o.code);
 				return o;
