@@ -24,7 +24,7 @@
 			}
 			function getAccess(x,code) {
 				console.log("I got this farrer " + code);
-				$.post("https://api.etsy.com/v3/public/oauth/token.js?callback=" + x + "grant_type=authorization_code&client_id=imn1bvblrasc7oj8ga5z581x&redirect_uri=https://etsy.thesassyalpaca.com/login.html&code=" + code + "code_verifier=vvkdljkejllufrvbhgeiegrnvufrhvrffnkvcknjvfid");
+				$.post("https://api.etsy.com/v3/public/oauth/token.js?callback=" + x + "&grant_type=authorization_code&client_id=imn1bvblrasc7oj8ga5z581x&redirect_uri=https://etsy.thesassyalpaca.com/login.html&code=" + code + "code_verifier=vvkdljkejllufrvbhgeiegrnvufrhvrffnkvcknjvfid");
 			}
 			/*
 			function getAccess() {
